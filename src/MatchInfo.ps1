@@ -29,6 +29,12 @@ function MatchInfo {
     Write-host ':' -foregroundcolor $global:PSColor.Match.Default.Color -noNewLine
     Write-host $match.LineNumber -foregroundcolor $global:PSColor.Match.LineNumber.Color -noNewLine
     Write-host ':' -foregroundcolor $global:PSColor.Match.Default.Color -noNewLine
-    Write-host $match.Line -foregroundcolor $global:PSColor.Match.Line.Color
+    $ParsedText = $match.Line -split $match.pattern
+    Write-host $ParsedText[0] -foregroundcolor $global:PSColor.Match.Line.Color -noNewLine
+    for ($i = 1; $i -lt $ParsedText.length; $i += 1) {
+        Write-host $match.matches[0].value -foregroundcolor $global:PSColor.Match.MatchedText.Color -noNewLine -BackgroundColor $global:PSColor.Match.Background.Color
+        Write-host $ParsedText[$i] -foregroundcolor $global:PSColor.Match.Line.Color -noNewLine
+    }
+    Write-Host
     if ($match.Context) {PrintContext $match.Context.DisplayPostContext $match.RelativePath($pwd) ($match.LineNumber + 1)}
 }
