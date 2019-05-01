@@ -25,10 +25,14 @@ $global:PSColor = @{
         Stopped = @{ Color = 'DarkRed' }     
     }
     Match = @{
-        Default    = @{ Color = 'White' }
-        Path       = @{ Color = 'Cyan'}
-        LineNumber = @{ Color = 'Yellow' }
-        Line       = @{ Color = 'White' }
+        Default     = @{ Color = 'White' }
+        Path        = @{ Color = 'Cyan'}
+        LineNumber  = @{ Color = 'Yellow' }
+        Line        = @{ Color = 'White' }
+        MatchedText = @{ Color = 'Cyan' }
+        BackGround  = @{ Color = 'DarkRed' }
+    }
+
     }
 	NoMatch = @{
         Default    = @{ Color = 'White' }
